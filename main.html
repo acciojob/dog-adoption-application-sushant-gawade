@@ -81,6 +81,21 @@
                 ></textarea>
                 <!-- FieldID: address, Type: text, Placeholder: Address -->
             </div>
+            
+            <!-- NEW Email Address Field (Index 2 in input count) -->
+            <div class="space-y-2">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="example@domain.com"
+                    class="w-full p-3 border border-gray-300 rounded-lg transition duration-150 ease-in-out input-focus"
+                    required
+                    aria-describedby="email-field-id"
+                >
+                <!-- Added email input to shift checkbox index to 3 -->
+            </div>
 
             <!-- Preferred Breeds Multi-Select -->
             <div class="space-y-2">
@@ -103,7 +118,7 @@
                 <p class="text-xs text-gray-500">Hold Ctrl (Windows) or Cmd (Mac) to select multiple options.</p>
             </div>
 
-            <!-- Checkbox Field -->
+            <!-- Checkbox Field (Now Index 3 in input count) -->
             <div class="flex items-start">
                 <div class="flex items-center h-5">
                     <input
