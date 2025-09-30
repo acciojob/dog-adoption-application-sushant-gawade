@@ -1,130 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-			background-color: #f4f8fb;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			min-height: 100vh;
-			margin: 0;
-		}
-
-		.form-container {
-			background: #fff;
-			padding: 25px 30px;
-			border-radius: 12px;
-			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-			width: 400px;
-		}
-
-		.form-container h2 {
-			text-align: center;
-			margin-bottom: 20px;
-			color: #333;
-		}
-
-		.form-group {
-			margin-bottom: 15px;
-		}
-
-		label {
-			display: block;
-			font-weight: bold;
-			margin-bottom: 6px;
-			color: #444;
-		}
-
-		input[type="text"], 
-		select {
-			width: 100%;
-			padding: 10px;
-			border: 1px solid #ccc;
-			border-radius: 8px;
-			font-size: 14px;
-		}
-
-		select[multiple] {
-			height: 100px;
-		}
-
-		.checkbox-group {
-			display: flex;
-			align-items: center;
-			gap: 10px;
-		}
-
-		.checkbox-group input {
-			transform: scale(1.2);
-		}
-
-		.submit-btn {
-			width: 100%;
-			padding: 12px;
-			background: #4CAF50;
-			border: none;
-			border-radius: 8px;
-			color: white;
-			font-size: 16px;
-			cursor: pointer;
-			transition: 0.3s;
-		}
-
-		.submit-btn:hover {
-			background: #45a049;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Adoption Application</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Using Inter font as required */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7;
+        }
+        /* Custom styling for the multi-select box to ensure it stands out */
+        select[multiple] {
+            min-height: 120px; /* Give multiple options room to breathe */
+            resize: vertical;
+        }
+        /* Style for the focus state */
+        .input-focus:focus {
+            border-color: #3b82f6; /* Blue-500 */
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+            outline: none;
+        }
+    </style>
 </head>
+<body class="min-h-screen flex items-center justify-center p-4">
 
-<body>
-	<!-- the entire body must be written by student -->
-	<div class="form-container">
-		<h2>Dog Adoption Application</h2>
-		<form>
-			<!-- Name -->
-			<div class="form-group">
-				<label for="name">Name</label>
-				<input type="text" id="name" placeholder="Name">
-			</div>
+    <!-- Application Card Container -->
+    <div class="w-full max-w-lg bg-white p-8 md:p-10 shadow-xl rounded-2xl border border-gray-100">
 
-			<!-- Phone -->
-			<div class="form-group">
-				<label for="phone">Phone Number</label>
-				<input type="text" id="phone" placeholder="Phone Number">
-			</div>
+        <!-- Header -->
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-2">Dog Adoption Application</h1>
+        <p class="text-center text-gray-500 mb-8">Tell us about yourself!</p>
 
-			<!-- Address -->
-			<div class="form-group">
-				<label for="address">Address</label>
-				<input type="text" id="address" placeholder="Address">
-			</div>
+        <!-- Form Start (All inputs are encapsulated within this tag) -->
+        <form id="adoptionForm" action="#" method="POST" class="space-y-6">
 
-			<!-- Checkbox -->
-			<div class="form-group checkbox-group">
-				<input type="checkbox" id="dogExperience" value="Have you ever lived with a Dog before?">
-				<label for="dogExperience">Have you ever lived with a Dog before?</label>
-			</div>
+            <!-- Name Field -->
+            <div class="space-y-2">
+                <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Name"
+                    class="w-full p-3 border border-gray-300 rounded-lg transition duration-150 ease-in-out input-focus"
+                    required
+                    aria-describedby="name-field-id"
+                >
+                <!-- FieldID: name, Type: text, Placeholder: Name -->
+            </div>
 
-			<!-- Multi-select -->
-			<div class="form-group">
-				<label for="multiSelect">Please select your preferred breeds</label>
-				<select id="multiSelect" multiple>
-					<option value="Labrador">Labrador</option>
-					<option value="German Shepherd">German Shepherd</option>
-					<option value="Golden Retriever">Golden Retriever</option>
-				</select>
-			</div>
+            <!-- Phone Number Field -->
+            <div class="space-y-2">
+                <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                <input
+                    type="text"
+                    id="phone"
+                    name="phone"
+                    placeholder="Phone Number"
+                    class="w-full p-3 border border-gray-300 rounded-lg transition duration-150 ease-in-out input-focus"
+                    required
+                    aria-describedby="phone-field-id"
+                >
+                <!-- FieldID: phone, Type: text, Placeholder: Phone Number -->
+            </div>
 
-			<!-- Submit -->
-			<div class="form-group">
-				<input type="submit" id="submit" value="Submit" class="submit-btn">
-			</div>
-		</form>
-	</div>
+            <!-- Address Field -->
+            <div class="space-y-2">
+                <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
+                <textarea
+                    id="address"
+                    name="address"
+                    rows="3"
+                    placeholder="Address"
+                    class="w-full p-3 border border-gray-300 rounded-lg transition duration-150 ease-in-out input-focus resize-y"
+                    required
+                    aria-describedby="address-field-id"
+                ></textarea>
+                <!-- FieldID: address, Type: text, Placeholder: Address -->
+            </div>
 
-    <script type="text/javascript" src="./script.js"></script>
+            <!-- Preferred Breeds Multi-Select -->
+            <div class="space-y-2">
+                <label for="multiSelect" class="block text-sm font-medium text-gray-700">Please select your preferred breeds</label>
+                <select
+                    id="multiSelect"
+                    name="multiSelect"
+                    multiple
+                    class="w-full p-3 border border-gray-300 rounded-lg transition duration-150 ease-in-out input-focus bg-white shadow-sm"
+                    required
+                    aria-describedby="multi-select-field-id"
+                >
+                    <!-- FieldID: multiSelect, Type: select (multi-select), Options: at least 3 -->
+                    <option value="Labrador_Retriever">Labrador Retriever</option>
+                    <option value="German_Shepherd">German Shepherd</option>
+                    <option value="Beagle">Beagle</option>
+                    <option value="Golden_Retriever">Golden Retriever</option>
+                    <option value="Poodle">Poodle</option>
+                </select>
+                <p class="text-xs text-gray-500">Hold Ctrl (Windows) or Cmd (Mac) to select multiple options.</p>
+            </div>
+
+            <!-- Checkbox Field -->
+            <div class="flex items-start">
+                <div class="flex items-center h-5">
+                    <input
+                        id="checkbox"
+                        name="checkbox"
+                        type="checkbox"
+                        value="Have you ever lived with a Dog before?"
+                        class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                        aria-describedby="checkbox-field-id"
+                    >
+                </div>
+                <div class="ml-3 text-sm">
+                    <label for="checkbox" class="font-medium text-gray-700 select-none">Have you ever lived with a Dog before?</label>
+                </div>
+                <!-- FieldID: checkbox, Type: checkbox, Value: "Have you ever lived with a Dog before?" -->
+            </div>
+
+            <!-- Submit Button -->
+            <div>
+                <button
+                    type="submit"
+                    id="submit"
+                    name="submit"
+                    class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out"
+                    aria-describedby="submit-button-id"
+                >
+                    Submit
+                </button>
+                <!-- FieldID: submit, Type: submit, Value: "Submit" -->
+            </div>
+
+        </form>
+        <!-- Form End -->
+
+        <!-- Simple JavaScript to prevent default submit and show confirmation -->
+        <script>
+            document.getElementById('adoptionForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                // Simple custom confirmation message instead of alert()
+                const form = document.getElementById('adoptionForm');
+                const submitButton = document.getElementById('submit');
+
+                form.innerHTML = `
+                    <div class="text-center py-10">
+                        <svg class="mx-auto h-12 w-12 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <h2 class="mt-2 text-xl font-semibold text-gray-900">Application Submitted!</h2>
+                        <p class="mt-1 text-sm text-gray-500">Thanks for submitting your dog adoption application, Ritesh. We'll be in touch soon!</p>
+                    </div>
+                `;
+            });
+        </script>
+
+    </div>
+
 </body>
 </html>
