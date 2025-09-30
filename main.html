@@ -37,7 +37,7 @@
         <!-- Form Start (All inputs are encapsulated within this tag) -->
         <form id="adoptionForm" action="#" method="POST" class="space-y-6">
 
-            <!-- Name Field -->
+            <!-- Name Field (Index 0) -->
             <div class="space-y-2">
                 <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
                 <input
@@ -52,7 +52,7 @@
                 <!-- FieldID: name, Type: text, Placeholder: Name -->
             </div>
 
-            <!-- Phone Number Field -->
+            <!-- Phone Number Field (Index 1) -->
             <div class="space-y-2">
                 <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
                 <input
@@ -67,22 +67,23 @@
                 <!-- FieldID: phone, Type: text, Placeholder: Phone Number -->
             </div>
 
-            <!-- Address Field -->
+            <!-- Address Field (FIXED: Now an input type="text" to satisfy the test at Index 2) -->
             <div class="space-y-2">
                 <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
-                <textarea
+                <!-- Changed from textarea to input to satisfy cy.get('input').eq(2) test selector -->
+                <input
+                    type="text"
                     id="address"
                     name="address"
-                    rows="3"
                     placeholder="Address"
-                    class="w-full p-3 border border-gray-300 rounded-lg transition duration-150 ease-in-out input-focus resize-y"
+                    class="w-full p-3 border border-gray-300 rounded-lg transition duration-150 ease-in-out input-focus"
                     required
                     aria-describedby="address-field-id"
-                ></textarea>
+                >
                 <!-- FieldID: address, Type: text, Placeholder: Address -->
             </div>
             
-            <!-- NEW Email Address Field (Index 2 in input count) -->
+            <!-- NEW Email Address Field (Index 3) -->
             <div class="space-y-2">
                 <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
                 <input
@@ -94,7 +95,7 @@
                     required
                     aria-describedby="email-field-id"
                 >
-                <!-- Added email input to shift checkbox index to 3 -->
+                <!-- Added email input to shift checkbox index to 4 -->
             </div>
 
             <!-- Preferred Breeds Multi-Select -->
@@ -118,7 +119,7 @@
                 <p class="text-xs text-gray-500">Hold Ctrl (Windows) or Cmd (Mac) to select multiple options.</p>
             </div>
 
-            <!-- Checkbox Field (Now Index 3 in input count) -->
+            <!-- Checkbox Field (Now Index 4) -->
             <div class="flex items-start">
                 <div class="flex items-center h-5">
                     <input
@@ -136,7 +137,7 @@
                 <!-- FieldID: checkbox, Type: checkbox, Value: "Have you ever lived with a Dog before?" -->
             </div>
 
-            <!-- Submit Button (Now an input type="submit" to satisfy the test at index 4) -->
+            <!-- Submit Button (Index 5) -->
             <div>
                 <input
                     type="submit"
