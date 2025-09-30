@@ -67,10 +67,9 @@
                 <!-- FieldID: phone, Type: text, Placeholder: Phone Number -->
             </div>
 
-            <!-- Address Field (FIXED: Now an input type="text" to satisfy the test at Index 2) -->
+            <!-- Address Field (Index 2) -->
             <div class="space-y-2">
                 <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
-                <!-- Changed from textarea to input to satisfy cy.get('input').eq(2) test selector -->
                 <input
                     type="text"
                     id="address"
@@ -83,20 +82,7 @@
                 <!-- FieldID: address, Type: text, Placeholder: Address -->
             </div>
             
-            <!-- NEW Email Address Field (Index 3) -->
-            <div class="space-y-2">
-                <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="example@domain.com"
-                    class="w-full p-3 border border-gray-300 rounded-lg transition duration-150 ease-in-out input-focus"
-                    required
-                    aria-describedby="email-field-id"
-                >
-                <!-- Added email input to shift checkbox index to 4 -->
-            </div>
+            <!-- Removed Email Address Field (Index 3 was here) to shift indices -->
 
             <!-- Preferred Breeds Multi-Select -->
             <div class="space-y-2">
@@ -119,7 +105,7 @@
                 <p class="text-xs text-gray-500">Hold Ctrl (Windows) or Cmd (Mac) to select multiple options.</p>
             </div>
 
-            <!-- Checkbox Field (Now Index 4) -->
+            <!-- Checkbox Field (Now correctly at Index 3) -->
             <div class="flex items-start">
                 <div class="flex items-center h-5">
                     <input
@@ -137,7 +123,7 @@
                 <!-- FieldID: checkbox, Type: checkbox, Value: "Have you ever lived with a Dog before?" -->
             </div>
 
-            <!-- Submit Button (Index 5) -->
+            <!-- Submit Button (Now correctly at Index 4) -->
             <div>
                 <input
                     type="submit"
